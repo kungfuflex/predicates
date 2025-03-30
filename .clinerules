@@ -1,0 +1,51 @@
+# Project Intelligence for alkanes monorepo
+
+## Code Patterns
+
+### Storage Pattern
+- Use StoragePointer::from_keyword("/key-name") for all persistent storage
+- Follow the established naming convention for storage keys:
+  - `/initialized` - Initialization guard
+
+### Security Patterns
+- Always call observe_initialization() in Initialize operation
+- Use overflow_error() for all numeric operations to prevent overflow
+- Validate incoming alkanes against specified parameters
+- Ensure proper validation based on the predicate type
+
+### Implementation Patterns
+- Implement appropriate traits for each predicate type
+- Use AlkaneResponder trait for message dispatching
+- Follow the alkane predicate format for consistency
+- Implement validation functions with comprehensive error handling
+
+## Monorepo Structure
+- Each predicate is a separate crate in the alkanes directory
+- Common patterns and utilities are shared across predicates
+- Tests are organized within each predicate's directory
+
+## Predicate Types
+
+### pair-equality
+- Opcode 0: Initialize()
+- Opcode 7: Filter(sequence_left, amount_left, sequence_right, amount_right)
+- Validates that exactly two alkanes are present in the transaction
+- Checks sequence numbers and amounts against specified parameters
+
+## Project Preferences
+- Use Rust 2021 edition
+- Follow standard Rust naming conventions
+- Use anyhow for error handling
+- Implement comprehensive error messages
+- Use checked arithmetic operations for all numeric calculations
+
+## Known Challenges
+- Ensuring proper initialization guards are in place
+- Validating incoming alkanes correctly
+- Preventing integer overflow vulnerabilities
+- Maintaining compatibility with existing systems
+
+## Tool Usage Patterns
+- Use cargo for building and testing
+- Compile to WebAssembly for deployment
+- Use git for version control
